@@ -107,7 +107,6 @@ app.post('/restaurants/:id/delete', (req, res) => {
 
 
 //search
-
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   Restaurant.find({ name: { $regex: keyword, $options: "i" } })

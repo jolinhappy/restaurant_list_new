@@ -7,15 +7,15 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
+      <a href="/">
+        <button type="button" class="btn btn-warning">返回</button>
+      </a>
     </div>
   </nav>
 
 
   <div class="banner"></div>
 </header>
-<a href="/">
-  <button type="button" class="btn btn-warning">返回</button>
-</a>
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
   <div class="row">
@@ -55,12 +55,15 @@
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt=" {{restaurant.name}}"
         style="max-width: 600px">
 
-      <a href="/restaurants/{{ restaurant._id }}/edit" method="GET">
-        <button type="button" class="btn btn-success">修改</button>
-      </a>
-      <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
-        <button type="submit" class="btn btn-danger">刪除</button>
-      </form>
+      <div class="button-group col text-center pb-5 pt-2">
+        <a href="/restaurants/{{ restaurant._id }}/edit" method="GET" style="text-decoration: none;">
+          <button type="button" class="btn btn-success mr-1">修改</button>
+        </a>
+        <form action="/restaurants/{{ restaurant._id }}/delete" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-danger ml-1">刪除</button>
+        </form>
+      </div>
+
 
     </div>
   </div>

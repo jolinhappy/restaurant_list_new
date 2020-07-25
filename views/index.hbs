@@ -7,10 +7,10 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
+      <a href="./restaurants/new" method="GET">
+        <button type="button" class="btn btn-warning">新增餐廳</button>
+      </a>
     </div>
-    <a href="./restaurants/new" method="GET">
-      <button type="button" class="btn btn-warning">新增餐廳</button>
-    </a>
   </nav>
 
 
@@ -57,12 +57,15 @@
                 {{this.rating}}
                 <i class="fas fa-star fa-xs"></i>
               </span>
-              <a href="./restaurants/{{this._id}}/edit" method="GET">
-                <button type="button" class="btn btn-success">修改</button>
-              </a>
-              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
-                <button type="submit" class="btn btn-danger">刪除</button>
-              </form>
+
+              <div class="button-group col text-right">
+                <a href="./restaurants/{{this._id}}/edit" method="GET" style="text-decoration: none;">
+                  <button type="button" class="btn btn-success btn-sm">修改</button>
+                </a>
+                <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+                  <button type="submit" class="btn btn-danger btn-sm">刪除</button>
+                </form>
+              </div>
             </div>
           </div>
         </a>

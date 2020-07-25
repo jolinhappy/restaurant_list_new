@@ -96,7 +96,14 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
+//delet POST
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(todo => todo.remove())
+    .then(todo => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 
 

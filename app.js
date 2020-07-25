@@ -100,15 +100,22 @@ app.post('/restaurants/:id/edit', (req, res) => {
 app.post('/restaurants/:id/delete', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
-    .then(todo => todo.remove())
-    .then(todo => res.redirect('/'))
+    .then(restaurant => restaurant.remove())
+    .then(restaurant => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
 
-
-
 //search
+
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find({ name: { $regex: keyword, $options: "i" } })
+    .lean()
+    .then(restaurants => res.render('index', { restaurants: restaurants }))
+    .catch(error => console.log(error))
+})
+
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

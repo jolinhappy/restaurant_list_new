@@ -26,7 +26,7 @@ restaurantSchema = new Schema({
     require: false,
   },
   phone: {
-    type: String
+    type: String,
     require: false,
   },
   google_map: {

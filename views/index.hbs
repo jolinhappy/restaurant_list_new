@@ -8,7 +8,7 @@
         我的餐廳清單
       </a>
     </div>
-    <a href="/restaurants/new" method="GET">
+    <a href="./restaurants/new" method="GET">
       <button type="button" class="btn btn-warning">新增餐廳</button>
     </a>
   </nav>
@@ -43,7 +43,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each restaurants}}
-        <a href="/restaurants/{{this._id}}" class="text-secondary">
+        <a href="./restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
@@ -57,7 +57,9 @@
                 {{this.rating}}
                 <i class="fas fa-star fa-xs"></i>
               </span>
-
+              <a href="./restaurants/{{this._id}}/edit" method="GET">
+                <button type="button" class="btn btn-success">修改</button>
+              </a>
             </div>
           </div>
         </a>

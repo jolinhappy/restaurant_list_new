@@ -1,4 +1,5 @@
 const express = require('express')
+const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 
@@ -13,10 +14,14 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+//handlebars setting
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 
 
 app.get('/', (req, res) => {
-  res.send('HIHI')
+  res.render('index')
 })
 
 app.listen(port, () => {

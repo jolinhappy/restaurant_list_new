@@ -3,11 +3,14 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 
+const Restaurant = require('./models/restaurant')
+
 //CSS setting
 app.use(express.static('public'))
 
 //mongoose setting
 const mongoose = require('mongoose')
+const restaurant = require('./models/restaurant')
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', () => {
@@ -24,7 +27,10 @@ app.set('view engine', 'hbs')
 
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {

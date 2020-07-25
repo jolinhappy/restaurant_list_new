@@ -3,6 +3,9 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 
+//CSS setting
+app.use(express.static('public'))
+
 //mongoose setting
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })

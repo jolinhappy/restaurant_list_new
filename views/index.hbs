@@ -7,7 +7,7 @@
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
         我的餐廳清單
       </a>
-      <a href="./restaurants/new" method="GET">
+      <a href="./restaurants/new">
         <button type="button" class="btn btn-warning">新增餐廳</button>
       </a>
     </div>
@@ -59,7 +59,7 @@
               </span>
 
               <div class="button-group col text-right">
-                <a href="./restaurants/{{this._id}}/edit" method="GET" style="text-decoration: none;">
+                <a href="./restaurants/{{this._id}}/edit" style="text-decoration: none;">
                   <button type="button" class="btn btn-success btn-sm">修改</button>
                 </a>
                 <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">

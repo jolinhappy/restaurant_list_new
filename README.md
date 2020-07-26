@@ -18,7 +18,7 @@
 <br>```git clone https://github.com/jolinhappy/restaurant_list_new.git```
 
 2.進入專案資料。
-<br>```cd new_restaurant_list```
+<br>```cd restaurant_list_new```
 
 3.在進入專案資料夾的狀態下安裝npm
 <br>```npm install```
@@ -26,11 +26,14 @@
 4.安裝nodemon
 <br>```npm install nodemon```
 
-5.啟動程式
+5.安裝express
+<br>```npm install express``
+
+6.啟動程式
 <br>```npm run dev```
 <br>*成功啟動後，終端機會顯示 Express is listening on localhost:3000
 
-6.連結專案網址
+7.連結專案網址
 <br>在瀏覽器上輸入 localhost:3000 進入專案網頁
 
 ## 環境建置與需求

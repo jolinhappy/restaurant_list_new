@@ -19,7 +19,7 @@ header {
   background-size: cover;
   filter: blur(3px);
 }
-
+/* 
 .search-bar .search-bar-outer {
   margin: 0 auto;
   max-width: 680px;
@@ -29,26 +29,26 @@ header {
   border: 0;
   margin-top: -60px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.search-bar .search-bar-inner h4 {
+/* .search-bar .search-bar-inner h4 {
   color: #9b4b4b;
-}
+} */
 
-.form-control::placeholder {
+/* .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;
-}
+} */
 
 .btn-major {
   background-color: #9b4b4b;
   color: white;
 }
 
-.form-control:focus {
+/* .form-control:focus {
   box-shadow: none;
   border-color: #ced4da;
-}
+} */
 
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -98,4 +98,8 @@ header {
     height: auto;
   }
   
+}
+
+.search-bar {
+  margin-top: 30px; 
 }

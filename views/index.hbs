@@ -17,25 +17,39 @@
   <div class="banner"></div>
 </header>
 
-<!-- search bar -->
-<div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
-          <input type="text" value="{{keyword}}" name="keyword" class="form-control" placeholder="輸入餐廳、分類"
-            aria-label="Restaurant Name..." value="" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>
+<div class="container column">
+  <!-- search bar -->
+  <div class="container row search-bar mt-300 justify-content-between">
+    {{!-- <div class="search-bar-outer"> --}}
+    {{!-- <div class="search-bar-inner"> --}}
+    <form action="/search">
+      {{!-- <h4 class="mb-2">尋找餐廳：</h4> --}}
+      <div class="input-group">
+        <input type="text" value="{{keyword}}" name="keyword" class="form-control" placeholder="輸入餐廳、分類"
+          aria-label="Restaurant Name..." aria-describedby="search-button" style="width: 350px;">
+        <div class="input-group-append">
+          <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
         </div>
-      </form>
+      </div>
+    </form>
+    {{!-- dropdown --}}
+    <div class="dropdown show" style="display: inline;">
+      <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        排序
+      </a>
+
+      <div class=" dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">餐廳名稱(A->Z)</a>
+        <a class="dropdown-item" href="#">餐廳名稱(z->A)</a>
+        <a class="dropdown-item" href="#">類別</a>
+        <a class="dropdown-item" href="#">地區</a>
+      </div>
     </div>
+    {{!-- </div> --}}
+    {{!-- </div> --}}
   </div>
 </div>
-
-
 
 <!-- restaurant list -->
 <div class="container mt-5">

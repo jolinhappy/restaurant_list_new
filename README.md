@@ -27,7 +27,7 @@
 <br>```npm install nodemon```
 
 5.安裝express
-<br>```npm install express``
+<br>```npm install express```
 
 6.啟動程式
 <br>```npm run dev```

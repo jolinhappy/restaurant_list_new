@@ -9,6 +9,7 @@
 - 可以新增餐廳。
 - 可以修改餐廳資訊。
 - 可以刪除不要的餐廳。
+- 可以依照選項更改排序。
 
 ## 專案畫面
 ![image](https://github.com/jolinhappy/restaurant_list_new/blob/master/project_screenshot.png)

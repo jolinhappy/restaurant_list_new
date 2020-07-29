@@ -4,7 +4,9 @@ const app = express()
 const port = 3000
 
 const Restaurant = require('./models/restaurant')
-
+//載入method-override入method-override
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 //CSS setting
 app.use(express.static('public'))
 
@@ -30,9 +32,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //瀏覽全部餐廳
 app.get('/', (req, res) => {
+  const sortby = '排序'
   Restaurant.find()
     .lean()
-    .then(restaurants => res.render('index', { restaurants }))
+    .then(restaurants => res.render('index', { restaurants, sortby }))
     .catch(error => console.log(error))
 })
 
@@ -66,6 +69,14 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
+})
+
 //edit page
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
@@ -76,7 +87,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 //接收修正的餐廳資料
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -105,7 +116,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //delet POST
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
@@ -117,12 +128,30 @@ app.post('/restaurants/:id/delete', (req, res) => {
 //search
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
+  const sortby = '排序'
   Restaurant.find({ name: { $regex: keyword, $options: "i" } })
     .lean()
-    .then(restaurants => res.render('index', { restaurants: restaurants }))
+    .then(restaurants => res.render('index', { restaurants: restaurants, keyword, sortby: sortby }))
     .catch(error => console.log(error))
 })
 
+//sort setting
+app.get('/sort/:option/:sort', (req, res) => {
+  const sortby = {
+    nameasc: '餐廳名稱(A->Z)',
+    namedesc: '餐廳名稱(Z->A)',
+    categoryasc: '類別',
+    locationasc: '地區'
+  }
+  const name = req.params.option
+  const sort = req.params.sort
+  const selected = `${name}${sort}`
+  Restaurant.find()
+    .lean()
+    .sort({ [name]: sort })
+    .then(restaurants => res.render('index', { restaurants, sortby: sortby[selected] }))
+    .catch(error => console.log(error))
+})
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

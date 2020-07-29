@@ -10,17 +10,7 @@ const routes = require('./routes')
 //載入method-override入method-override
 const methodOverride = require('method-override')
 
-
-//mongoose setting
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
+require('./config/mongoose')
 
 //handlebars setting
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))

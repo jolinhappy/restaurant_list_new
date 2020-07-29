@@ -12,7 +12,7 @@
 - 可以依照選項更改排序。
 
 ## 專案畫面
-![image](https://github.com/jolinhappy/restaurant_list_new/blob/master/project_screenshot.png)
+![image](https://github.com/jolinhappy/restaurant_list_new/blob/master/project_screenshot_update.png)
 
 ## 安裝步驟
 1.開啟終端機，並clone此專案。

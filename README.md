@@ -27,8 +27,8 @@
 4.安裝nodemon
 <br>```npm install nodemon```
 
-5.安裝express
-<br>```npm install express```
+5.安裝種子資料
+<br>```npm run seeds```
 
 6.啟動程式
 <br>```npm run dev```
